@@ -16,7 +16,7 @@ var RadioByName = {};
   
   map.addLayer(markersLayer);
   var controlSearch = new L.Control.Search({
-    position:'bottomleft',    
+    position:'topleft',    
     layer: markersLayer,
     initial: false,
     zoom: 12,
