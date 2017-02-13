@@ -59,14 +59,21 @@ for(i=0; i<radio.length; i++) {
 
 
     radio_marker.on('click', function(e) {
-        changeSelection(e.target.options.title);
-        map.setView([e.target._latlng.lat, e.target._latlng.lng]);
 
-        var myPopup = L.popup()
-        .setContent("<strong>" + e.target.options.redaktion_link + "</strong> | " + 
-          e.target.options.stadt);
-          e.target.bindPopup(myPopup).openPopup();
-    });
+       changeSelection(e.target.options.title);
+       map.setView([e.target._latlng.lat, e.target._latlng.lng]);
+
+       var myPopup = L.popup().setContent(
+         "<strong>" +
+         e.target.options.redaktion_link +
+         "</strong> | " +
+         e.target.options.stadt
+      );
+      e.target
+       .unbindPopup()
+       .bindPopup(myPopup)
+       .openPopup();
+   });
 
     radioMarkers.push(radio_marker);  // keep marker reference for later
 } 
