@@ -20,7 +20,7 @@ map.addLayer(markersLayer);
     position:'topleft',    
     layer: markersLayer,
     initial: false,
-    zoom: 12,
+    zoom: 11,
     marker: false,
     textPlaceholder: 'Suche...'
   });
@@ -90,6 +90,10 @@ controlSearch.on('search:locationfound', function(e) {
       .unbindPopup()
        .bindPopup(myPopup)
        .openPopup();
+  })
+
+.on('search:collapsed', function(e) {
+      map.setView([51.426002, 7.503215], 8);
   })
 
 function changeSelection(radioRedaktion) {
