@@ -27,14 +27,23 @@ map.addLayer(markersLayer);
 
   map.addControl(controlSearch);  
 
-var icon = L.icon({
+
+for(i=0; i<radio.length; i++) {
+  var icon = L.icon({
             iconUrl: 'icons/icon.png',
             iconSize:     [30, 32], 
             iconAnchor:   [15, 32], 
             popupAnchor: [0, -32]
           });
+          if (radio[i].type === "service") {
+            icon = L.icon({
+              iconUrl: 'icons/icon_service.png',
+              iconSize:     [30, 32], 
+              iconAnchor:   [15, 32], 
+              popupAnchor: [0, -32]
+              });
+          };
 
-for(i=0; i<radio.length; i++) {
     RadioByName[radio[i].redaktion] = radio[i];
     
     var radio_marker = [];
